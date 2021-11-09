@@ -1,7 +1,12 @@
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:acosdemega/responsive.dart';
+import 'package:acosdemega/screens/description.dart';
+import 'package:acosdemega/screens/introduction.dart';
+import 'package:acosdemega/widgets/app_bar.dart';
+import 'package:acosdemega/widgets/app_drawer.dart';
+import 'package:acosdemega/widgets/product_appbar.dart';
+import 'package:acosdemega/widgets/subtitle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -12,79 +17,46 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  bool _tapped = false;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 80,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        backgroundColor:Theme.of(context).primaryColor,
+        title:MyAppBar()
+      ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
           children: [
-            Material(
-              elevation: 5,
-              child: Container(
-                height: 80,
-                width: double.infinity,
-                color: Theme.of(context).primaryColor,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset("assets/images/logo.png",
-                          fit: BoxFit.cover,
-                          width: 80,
-                          height: 50,
-                          color:EasyDynamicTheme.of(context).themeMode==ThemeMode.light ?Colors.black:Colors.white,
-                        ),
-
-                        Text('Acosdemega Technology',
-                          textAlign: TextAlign.center,
-                          style:  GoogleFonts.aBeeZee(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextButton(
-                            onPressed: null,
-                            child: Text('Login',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              color:EasyDynamicTheme.of(context).themeMode==ThemeMode.light ?Colors.black:Colors.white,
-                            ),),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextButton(
-                            onPressed:(){
-                              EasyDynamicTheme.of(context).changeTheme();
-                            },
-                            child: Text('Theme',
-                              style: TextStyle(
-                                color:EasyDynamicTheme.of(context).themeMode==ThemeMode.light ?Colors.black:Colors.white60,
-                              ),),
-                          ),
-                        ),
-                        SizedBox(width: 50,)
-                      ],
-                    ),
-
-                  ],
-                ),
-              ),
-            ),
+            ProductBar(),
+            Introduction(),
+            SizedBox(height: 10,),
+            Description(),
+            SizedBox(height: 10,),
 
 
 
           ],
         ),
-      )
+      ), floatingActionButton:Responsive.isMobile(context)? Container(
+        child: FloatingActionButton.extended(
+          onPressed: (){
+          },
+          label: Text("Book Appointment"),
+        icon: Icon(Icons.edit),)
+      ):null,
+      drawer: Responsive.isMobile(context)? Drawer(
+        child: AppDrawer(),
+      ):null
     );
   }
 }

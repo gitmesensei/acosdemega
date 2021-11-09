@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkThemeData,
       debugShowCheckedModeBanner: false,
       themeMode: EasyDynamicTheme.of(context).themeMode,
-      home:HomeScreen(),
+      home:MobileScreen(),
     );
   }
 }

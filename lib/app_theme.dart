@@ -48,21 +48,24 @@ class Palette {
 }
 
 var lightThemeData = ThemeData(
-  primarySwatch: generateMaterialColor(Palette.notWhite),
+  primarySwatch: generateMaterialColor(Colors.black),
   cardColor: Colors.blueGrey[50],
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: Colors.black
+  ),
+  primaryIconTheme: IconThemeData(color: Colors.black),
   primaryColor: Colors.white,
   primaryTextTheme: TextTheme(
     button: TextStyle(
-      color: Colors.blueGrey,
-      decorationColor: Colors.blueGrey[300],
+      color: Colors.black,
     ),
     subtitle2: TextStyle(
-      color: Colors.blueGrey[900],
+      color: Colors.black,
     ),
     subtitle1: TextStyle(
       color: Colors.black,
     ),
-    headline1: TextStyle(color: Colors.blueGrey[800]),
+    headline1: TextStyle(color: Colors.black),
   ),
   bottomAppBarColor: Colors.blueGrey[900],
   iconTheme: IconThemeData(color: Colors.black),
@@ -70,22 +73,25 @@ var lightThemeData = ThemeData(
 );
 
 var darkThemeData = ThemeData(
-  primarySwatch: generateMaterialColor(Palette.secondaryColor),
+  primarySwatch: generateMaterialColor(Colors.white),
   primaryColor: Colors.black,
+  primaryIconTheme: IconThemeData(color: Colors.white),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.white
+  ),
   cardColor: Colors.black,
   buttonTheme: ButtonThemeData(
-    textTheme: ButtonTextTheme.primary
+    textTheme: ButtonTextTheme.normal
   ),
   primaryTextTheme: TextTheme(
     button: TextStyle(
-      color: Colors.blueGrey[200],
-      decorationColor: Colors.blueGrey[50],
+      color: Colors.white,
     ),
     subtitle2: TextStyle(
       color: Colors.white,
     ),
     subtitle1: TextStyle(
-      color: Colors.blueGrey[300],
+      color: Colors.white,
     ),
     headline1: TextStyle(
       color: Colors.white70,
