@@ -15,6 +15,21 @@ MaterialColor generateMaterialColor(Color color) {
     900: shadeColor(color, 0.4),
   });
 }
+const kDefaultPadding = 20.0;
+const kTextColor = Color(0xFF707070);
+
+final kDefaultShadow = BoxShadow(
+  offset: Offset(0, 50),
+  blurRadius: 50,
+  color: Color(0xFF0700B1).withOpacity(0.15),
+);
+
+
+final kDefaultCardShadow = BoxShadow(
+  offset: Offset(0, 20),
+  blurRadius: 50,
+  color: Colors.black.withOpacity(0.1),
+);
 
 Color shadeColor(Color color, double factor) => Color.fromRGBO(
     shadeValue(color.red, factor),

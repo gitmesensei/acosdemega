@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -31,10 +28,7 @@ class _AppDrawerState extends State<AppDrawer> {
                             shape: BoxShape.circle,
                             border: Border.all(
                                 width: 2.0,
-                                color: EasyDynamicTheme.of(context).themeMode ==
-                                        ThemeMode.light
-                                    ? Colors.black
-                                    : Colors.white,
+                                color:  Colors.black,
                                 style: BorderStyle.solid),
                           ),
                           child: Center(
@@ -43,10 +37,7 @@ class _AppDrawerState extends State<AppDrawer> {
                               fit: BoxFit.cover,
                               width: 80,
                               height: 50,
-                              color: EasyDynamicTheme.of(context).themeMode ==
-                                      ThemeMode.light
-                                  ? Colors.black
-                                  : Colors.white,
+                              color: Colors.black,
                             ),
                           ),
                         ),
@@ -77,7 +68,6 @@ class _AppDrawerState extends State<AppDrawer> {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    EasyDynamicTheme.of(context).changeTheme();
                     Navigator.pop(context);
                   },
                 ),
@@ -143,10 +133,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   padding: const EdgeInsets.all(8.0),
                   child: Divider(
                     height: 2,
-                    color: EasyDynamicTheme.of(context).themeMode ==
-                        ThemeMode.light
-                        ? Colors.black
-                        : Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 Padding(

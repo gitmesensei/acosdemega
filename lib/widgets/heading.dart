@@ -6,11 +6,13 @@ class Heading extends StatelessWidget {
      required this.title,
      required this.alignText,
      required this.size,
+     required this.color,
   }) : super(key: key);
 
   final String title;
   final TextAlign alignText;
   final double size;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class Heading extends StatelessWidget {
       textAlign: alignText,
       style:  GoogleFonts.aBeeZee(
           fontSize: size,
+          color: color,
           fontWeight: FontWeight.w800
       ),
     );

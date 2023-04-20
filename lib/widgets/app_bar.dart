@@ -1,10 +1,18 @@
 import 'package:acosdemega/responsive.dart';
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class MyAppBar extends StatelessWidget {
+import '../app_theme.dart';
+import 'heading.dart';
+
+class MyAppBar extends StatefulWidget {
   const MyAppBar({Key? key}) : super(key: key);
+
+  @override
+  State<MyAppBar> createState() => _MyAppBarState();
+}
+class _MyAppBarState extends State<MyAppBar> {
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +27,9 @@ class MyAppBar extends StatelessWidget {
                         onPressed: () {
                           Scaffold.of(context).openDrawer();
                         },
-                        icon: Icon(Icons.menu,
-                          color: EasyDynamicTheme.of(context).themeMode==ThemeMode.dark?Colors.white:Colors.black,
+                        icon: Icon(
+                          Icons.menu,
+                          color: Colors.black,
                         )),
                     TextButton(
                       onPressed: () {},
@@ -34,17 +43,13 @@ class MyAppBar extends StatelessWidget {
                   ],
                 )
               : Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      "assets/images/logo.png",
-                      fit: BoxFit.cover,
-                      width: 80,
-                      height: 80,
-                      color: EasyDynamicTheme.of(context).themeMode ==
-                              ThemeMode.light
-                          ? Colors.black
-                          : Colors.white,
-                    ),
+                    Image.asset("assets/images/logo.png",
+                        fit: BoxFit.cover,
+                        width: 100,
+                        height: 100,
+                        color: Colors.black),
                     TextButton(
                       onPressed: () {},
                       child: Text(
@@ -64,29 +69,13 @@ class MyAppBar extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Book Appointment',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
                       child: FloatingActionButton.extended(
                         elevation: 0,
                         onPressed: () {
-                          EasyDynamicTheme.of(context).changeTheme();
+                          _launchURL();
                         },
-                        icon: Icon(
-                          Icons.lightbulb_outline_rounded,
-                        ),
                         label: Text(
-                          'Theme',
+                          'Call +91-8527404034',
                         ),
                       ),
                     ),
@@ -99,4 +88,9 @@ class MyAppBar extends StatelessWidget {
       ),
     );
   }
+  void _launchURL() async {
+    if (!await launch("tel:8527404034")) throw 'Could not launch';
+  }
 }
+
+

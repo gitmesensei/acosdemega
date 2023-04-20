@@ -1,6 +1,4 @@
 import 'package:acosdemega/responsive.dart';
-import 'package:acosdemega/widgets/subtitle.dart';
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,7 +24,7 @@ class _ProductBarState extends State<ProductBar> {
     return Align(
         alignment: Alignment.topCenter,
         child: Container(
-          color: EasyDynamicTheme.of(context).themeMode==ThemeMode.light?Colors.black:Colors.white,
+          color: Colors.black,
           child: Responsive.isMobile(context)?SizedBox(width: 0.1,):Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:List.generate(
@@ -43,7 +41,7 @@ class _ProductBarState extends State<ProductBar> {
         textAlign: TextAlign.center,
         style:  GoogleFonts.aBeeZee(
             fontSize: 16,
-            color: EasyDynamicTheme.of(context).themeMode==ThemeMode.light?Colors.white:Colors.black,
+            color:Colors.white,
             fontWeight: FontWeight.w500
         )
       )

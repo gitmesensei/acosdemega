@@ -7,18 +7,17 @@ class CatchyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 400,
+      width: 320,
       height: 150,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const SizedBox(width: 20.0, height: 100.0),
           const Text(
             'Truly',
             style: TextStyle(fontSize: 43.0,
             fontWeight: FontWeight.bold),
           ),
-          const SizedBox(width: 20.0, height: 100.0),
+          const SizedBox(width: 20.0,),
           AnimatedTextKit(
             repeatForever: true,
             animatedTexts: [
